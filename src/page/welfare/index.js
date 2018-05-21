@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 
 class Welfare extends Component {
     static navigationOptions = {
-       headerStyle: { display: 'none' }
+       headerStyle: { display: 'none'},
+       headerTitle:'Home'
     }
 
   render() {

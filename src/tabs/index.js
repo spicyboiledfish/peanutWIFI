@@ -11,7 +11,9 @@ const Tab = createBottomTabNavigator(
 {
     Welfare:{ 
         screen: Welfare,  
-        navigationOptions:{
+        navigationOptions:{ 
+            headerStyle: { display: 'none'},
+            headerTitle:'Home',     
             tabBarLabel:'福利',
             tabBarIcon:({focused}) => (  
                 <Image 

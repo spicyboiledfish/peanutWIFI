@@ -17,9 +17,6 @@ const AppNavigator = createStackNavigator(
     },
     {
       initialRouteName: 'Tab',
-      navigationOptions : {
-        headerStyle: { display: 'none' }
-     }
     }
 );
 
