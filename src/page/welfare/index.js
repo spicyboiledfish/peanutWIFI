@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import add_action from '../../action/index';
 import {connect} from 'react-redux';
 
-class AddCount extends Component {
+class Welfare extends Component {
     static navigationOptions = {
-       headerStyle: {display: 'none'}
+       headerStyle: { display: 'none' }
     }
 
   render() {
@@ -45,7 +45,4 @@ const mapDispatchToProps = (dispatch) =>({
     }
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(AddCount);
-
-
-
+export default connect(mapStateToProps,mapDispatchToProps)(Welfare);

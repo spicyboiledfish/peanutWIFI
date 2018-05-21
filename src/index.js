@@ -23,7 +23,6 @@ export default class App extends Component {
     return (
         <Provider store={store}>
           <AppNavigator>
-            <AddCount />
           </AppNavigator>
         </Provider>
       
