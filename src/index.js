@@ -14,6 +14,7 @@ import {
 import {Provider} from 'react-redux';
 import store from './store/index'
 import AddCount from './page/component/AddCount';
+import AppNavigator from './navigators/index';
 
 
 
@@ -21,7 +22,9 @@ export default class App extends Component {
   render() {
     return (
         <Provider store={store}>
-            <AddCount/>
+          <AppNavigator>
+            <AddCount />
+          </AppNavigator>
         </Provider>
       
     );
