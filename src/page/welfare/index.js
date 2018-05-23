@@ -5,8 +5,7 @@ import {connect} from 'react-redux';
 
 class Welfare extends Component {
     static navigationOptions = {
-       title: 'Welcome',
-       headerTitle: "Welcome",
+       title: "福利",
        headerTintColor:'#fff',
        headerStyle: { backgroundColor:'#fb4747'},
        headerBackTitle:null,
