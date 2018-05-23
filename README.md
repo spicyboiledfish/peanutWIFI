@@ -6,7 +6,6 @@
 ## 5.21 添加顶部navBar导航栏,底部tab栏
 * createStackNavigator（老式写法：StackNavigator）
 * createBottomTabNavigator（老式写法：TabNavigator）
-* ![TabNavigator和StackNavigator冲突](./exhibition/navigator.gif)
 
 ## 5.23 解决顶部navBar跟底部的tabBar冲突的问题。（要么顶部标题都为空，要么都一样）
 * ### 使用的react-navigation版本为2.0.1, react-native版本为0.55.4, react版本为16.3.1
@@ -112,5 +111,5 @@ const Tab = createBottomTabNavigator(
 ```
 * ### 现在解决方案如下：
 ### 将TabNavigator作为最外层，然后在原先创建stackNavigator的文件中创建五个stackNavigator，并export出去；每个stackNavigator都有自己的screen，和自己的initialRouteName；在Tab中基本不用动；现在可以修改每个页面中的navigationOptions去改变每个stackNavigator的头部标题及是否有title等等属性，都可自由发挥。
-
+* ![TabNavigator和StackNavigator冲突解决](./exhibition/navigat.gif)
                     
