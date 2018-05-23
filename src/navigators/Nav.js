@@ -6,14 +6,15 @@ import Metro from '../page/Metro';
 import Travel from '../page/Travel';
 import Play from '../page/Play';
 import Tab from './Tab';
+import Detail from '../page/Detail';
 
 const commonOptions = (route) =>({
     headerMode:'screen',
     initialRouteName: route,
     navigationOptions: {
       headerStyle:{ backgroundColor: '#fb4747'},
-      headerTitleStyle: { color:'#fff', alignSelf: 'center',}
-    }
+      headerTitleStyle: { color:'#fff', alignSelf: 'center',},
+    },
 })
 
 const WelfareNavigator = createStackNavigator(
@@ -21,6 +22,9 @@ const WelfareNavigator = createStackNavigator(
       Welfare:{
         screen: Welfare
       }, 
+      Detail:{
+        screen:Detail
+      }
     },
     commonOptions("Welfare")
 );

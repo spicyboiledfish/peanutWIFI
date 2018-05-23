@@ -75,14 +75,22 @@ const Tab = createBottomTabNavigator(
     },
     {
         tabBarPosition:'bottom',
-        swipeEnabled:false,   
+        swipeEnabled:false,  
         lazy: true,
         tabBarOptions: {
             showIcon:true,
             activeTintColor: 'tomato',
             inactiveTintColor: 'gray',
-            labelStyle:{marginBottom:6}
+            labelStyle:{marginBottom:6},
           },
+        //在这里解决了：在点击进入详情页面时，Detail页面会保留底部的TabBar。
+        //用了tabBarVisible为true显示，false消失
+        navigationOptions: ({navigation}) => {
+            console.log();
+            return {
+                tabBarVisible : navigation.state.routes.length == 1 ? true : false,
+            }
+        }
     }
 )
 

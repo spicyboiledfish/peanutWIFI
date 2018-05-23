@@ -3,16 +3,22 @@ import { Text, View, TouchableOpacity, StyleSheet, StatusBar } from 'react-nativ
 import add_action from '../action/index';
 import {connect} from 'react-redux';
 
+
 class Welfare extends Component {
-    static navigationOptions = ({navigation}) => {
+  static navigationOptions = ({navigation}) => {
       // console.log(navigation);
        return {
         headerTitle: "福利",
         headerTintColor:'#fff',
+        tabBarVisible:false,
         headerStyle: { backgroundColor:'#fb4747'},
         headerBackTitle:null,
        }
-    }
+  }
+
+  detailBtn(){
+    this.props.navigation.navigate('Detail', { title: '下一页'})
+  }
 
   render() {
     const {count, addCount} = this.props;
@@ -26,7 +32,10 @@ class Welfare extends Component {
           <Text>查看数字：{count}</Text>
           <TouchableOpacity onPress={()=>addCount()} style={styles.addBtn}>
             <Text> +1 </Text>
-          </TouchableOpacity>  
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.detailBtn()} style={styles.detailBtn}>
+            <Text> 点击进入详情 </Text>
+          </TouchableOpacity>   
         </View>
       </View>
     )
@@ -35,7 +44,8 @@ class Welfare extends Component {
 
 const styles = StyleSheet.create({
     container: {
-       margin:100
+       margin:100,
+       alignItems:'center',
     },
     addBtn:{
        width:50,
@@ -43,6 +53,14 @@ const styles = StyleSheet.create({
        justifyContent:'center',
        alignItems:'center',
        backgroundColor: 'orange',
+    },
+    detailBtn:{
+      margin:50,
+      width:100,
+      height:40,
+      justifyContent:'center',
+       alignItems:'center',
+       backgroundColor: 'yellowgreen',
     }
 })
 
