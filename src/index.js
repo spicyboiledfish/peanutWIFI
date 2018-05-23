@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store/index'
-import AddCount from './page/component/AddCount';
 import AppNavigator from './navigators/index';
 
 

@@ -1,22 +1,21 @@
 import {StackNavigator, createStackNavigator} from 'react-navigation';
-import AddCount from '../page/component/AddCount';
-import SignUp from '../page/component/SignUp';
 import Tab from '../tabs/index'
 
 const AppNavigator = createStackNavigator(
     {
       Tab:{
         screen: Tab, 
-      },
-      Home: {
-        screen: AddCount,    
-      },
-      SignUp: {
-        screen: SignUp, 
+        navigationOptions: {
+          title: '首页',
+      }
       },
     },
     {
       initialRouteName: 'Tab',
+      navigationOptions:{
+        headerStyle:{ backgroundColor:'#fb4747'},
+        headerTintColor:'#ffffff',
+      }
     }
 );
 
