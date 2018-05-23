@@ -6,4 +6,4 @@
 ## 5.21 添加顶部navBar导航栏,底部tab栏
 * createStackNavigator
 * createBottomTabNavigator
-* ![](./exhibition/tab.gif)
+* ![TabNavigator和StackNavigator冲突](./exhibition/navigator.gif)
