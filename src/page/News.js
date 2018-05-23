@@ -3,10 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 
 export default class News extends Component {
   static navigationOptions = {
-    headerTitle: "资讯",
-    headerTintColor:'#fff',
-    headerStyle: { backgroundColor:'#fb4747'},
-    headerBackTitle:null,
+    headerTitle:'资讯'
  }
   render() {
     return (

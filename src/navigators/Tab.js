@@ -1,16 +1,17 @@
-import {createBottomTabNavigator, TabNavigator} from 'react-navigation';
+import {createBottomTabNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
 import Welfare from '../page/Welfare';
 import News from '../page/News';
 import Metro from '../page/Metro';
 import Travel from '../page/Travel';
 import Play from '../page/Play';
 import React, { Component } from 'react';
+import {WelfareNavigator, NewsNavigator, TravelNavigator, PlayNavigator, MetroNavigator} from './Nav';
 import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const Tab = createBottomTabNavigator(
 {
-    Welfare:{ 
-        screen: Welfare,  
+    WelfareNavigator:{ 
+        screen: WelfareNavigator,  
         navigationOptions:{ 
             tabBarLabel:'福利',
             tabBarIcon:({focused}) => (  
@@ -21,8 +22,8 @@ const Tab = createBottomTabNavigator(
             ),
         }    
     },
-    News:{ 
-        screen: News,
+    NewsNavigator:{ 
+        screen: NewsNavigator,
         navigationOptions:{
             tabBarLabel:'咨讯',
             tabBarIcon:({focused}) => (  
@@ -34,8 +35,8 @@ const Tab = createBottomTabNavigator(
         
         }
     },
-    Metro:{ 
-        screen: Metro,
+    MetroNavigator:{ 
+        screen: MetroNavigator,
         navigationOptions:{
             tabBarLabel:'地铁',
             tabBarIcon:({focused}) => (  
@@ -46,8 +47,8 @@ const Tab = createBottomTabNavigator(
             ),
         }
     },
-    Travel:{ 
-        screen: Travel,
+    TravelNavigator:{ 
+        screen: TravelNavigator,
         navigationOptions:{
             tabBarLabel:'出行',
             tabBarIcon:({focused}) => (  
@@ -58,8 +59,8 @@ const Tab = createBottomTabNavigator(
             ),
         }
     },
-    Play:{ 
-        screen: Play,
+    PlayNavigator:{ 
+        screen: PlayNavigator,
         navigationOptions:{
             tabBarLabel:'玩吧',
             tabBarIcon:({focused}) => (  
@@ -73,14 +74,15 @@ const Tab = createBottomTabNavigator(
 
     },
     {
-        
         tabBarPosition:'bottom',
+        swipeEnabled:false,   
+        lazy: true,
         tabBarOptions: {
+            showIcon:true,
             activeTintColor: 'tomato',
             inactiveTintColor: 'gray',
             labelStyle:{marginBottom:6}
           },
-    
     }
 )
 

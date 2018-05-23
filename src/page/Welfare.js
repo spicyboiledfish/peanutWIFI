@@ -4,11 +4,14 @@ import add_action from '../action/index';
 import {connect} from 'react-redux';
 
 class Welfare extends Component {
-    static navigationOptions = {
-       headerTitle: "福利",
-       headerTintColor:'#fff',
-       headerStyle: { backgroundColor:'#fb4747'},
-       headerBackTitle:null,
+    static navigationOptions = ({navigation}) => {
+      // console.log(navigation);
+       return {
+        headerTitle: "福利",
+        headerTintColor:'#fff',
+        headerStyle: { backgroundColor:'#fb4747'},
+        headerBackTitle:null,
+       }
     }
 
   render() {

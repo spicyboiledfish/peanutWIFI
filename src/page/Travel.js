@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 
 export default class Travel extends Component {
   static navigationOptions = {
-      headerTitle:'资讯',
+      headerTitle:'出行',
   }
   render() {
     return (

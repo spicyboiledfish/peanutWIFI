@@ -7,25 +7,64 @@ import Travel from '../page/Travel';
 import Play from '../page/Play';
 import Tab from './Tab';
 
-const AppNavigator = createStackNavigator(
+const commonOptions = (route) =>({
+    headerMode:'screen',
+    initialRouteName: route,
+    navigationOptions: {
+      headerStyle:{ backgroundColor: '#fb4747'},
+      headerTitleStyle: { color:'#fff', alignSelf: 'center',}
+    }
+})
+
+const WelfareNavigator = createStackNavigator(
     {
-      Home:{
-        screen: Tab,
-        navigationOptions:{
-          title:"福利"
-        }
+      Welfare:{
+        screen: Welfare
       }, 
     },
-    {
-      initialRouteName: 'Home',
-      navigationOptions:{
-        headerStyle:{ backgroundColor:'#fb4747'},
-        headerTitleStyle: { color: '#fff'},
-      }
-    }
+    commonOptions("Welfare")
 );
 
-export default AppNavigator;
+const NewsNavigator = createStackNavigator(
+  {
+    News:{
+      screen: News,
+    }, 
+  },
+  commonOptions("News")
+  
+);
+const MetroNavigator = createStackNavigator(
+  {
+    Metro:{
+      screen: Metro,
+    }, 
+  },
+  commonOptions("Metro")
+  
+);
+const TravelNavigator = createStackNavigator(
+  {
+    Travel:{
+      screen: Travel,
+    }, 
+  },
+  commonOptions("Travel")
+  
+);
+
+const PlayNavigator = createStackNavigator(
+  {
+    Play:{
+      screen: Play,
+    }, 
+  },
+  commonOptions("Play")
+  
+);
+
+
+export  {WelfareNavigator, NewsNavigator, MetroNavigator, TravelNavigator, PlayNavigator}
 
 
 //**备注：StackNavigation的navigationOptions属性如下：

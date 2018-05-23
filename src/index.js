@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store/index'
-import AppNavigator from './navigators/Nav';
+import Tab from './navigators/Tab';
 
 
 
@@ -21,8 +21,7 @@ export default class App extends Component {
   render() {
     return (
         <Provider store={store}>
-          <AppNavigator>
-          </AppNavigator>
+          <Tab />
         </Provider>
       
     );
