@@ -1,5 +1,13 @@
 # peanutWIFI 花生地铁
 * 使用react native + redux + react navigation
+* 使用版本如下：
+```   
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-navigation": "2.0.1",
+    "react-redux": "5.0.7",
+    "redux": "4.0.0"
+```
 ## 5.20 初始化项目
 * 此项目为工作业余时间开发，进展会比较慢...
 
