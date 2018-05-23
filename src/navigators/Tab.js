@@ -1,9 +1,9 @@
 import {createBottomTabNavigator, TabNavigator} from 'react-navigation';
-import Welfare from '../page/welfare/index';
-import News from '../page/news/index';
-import Metro from '../page/metro/index';
-import Travel from '../page/travel/index';
-import Play from '../page/play/index';
+import Welfare from '../page/Welfare';
+import News from '../page/News';
+import Metro from '../page/Metro';
+import Travel from '../page/Travel';
+import Play from '../page/Play';
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
-import add_action from '../../action/index';
+import add_action from '../action/index';
 import {connect} from 'react-redux';
 
 class Welfare extends Component {
     static navigationOptions = {
-       title: "福利",
+       headerTitle: "福利",
        headerTintColor:'#fff',
        headerStyle: { backgroundColor:'#fb4747'},
        headerBackTitle:null,

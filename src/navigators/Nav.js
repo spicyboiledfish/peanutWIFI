@@ -1,50 +1,23 @@
 import {StackNavigator, createStackNavigator} from 'react-navigation';
 
-import Welfare from '../page/welfare/index';
-import News from '../page/news/index';
-import Metro from '../page/metro/index';
-import Travel from '../page/travel/index';
-import Play from '../page/play/index';
-import Tab from '../tabs/index';
+import Welfare from '../page/Welfare';
+import News from '../page/News';
+import Metro from '../page/Metro';
+import Travel from '../page/Travel';
+import Play from '../page/Play';
+import Tab from './Tab';
 
 const AppNavigator = createStackNavigator(
     {
-      Welfare:{
-        screen: Welfare, 
-        navigationOptions: {
-          title:'福利'
+      Home:{
+        screen: Tab,
+        navigationOptions:{
+          title:"福利"
         }
-      },
-      News:{
-        screen: News, 
-        navigationOptions: {
-          headerTitle:'资讯'
-        }
-      },
-      Metro:{
-        screen: Welfare, 
-        navigationOptions: {
-          headerTitle:'地铁'
-        }
-      },
-      Travel:{
-        screen: Welfare, 
-        navigationOptions: {
-          headerTitle:'出行'
-        }
-      },
-      Play:{
-        screen: Play, 
-        navigationOptions: {
-          headerTitle:'玩吧'
-        }
-      },
-      Tab:{
-        screen: Tab
-      }
+      }, 
     },
     {
-      initialRouteName: 'Tab',
+      initialRouteName: 'Home',
       navigationOptions:{
         headerStyle:{ backgroundColor:'#fb4747'},
         headerTitleStyle: { color: '#fff'},

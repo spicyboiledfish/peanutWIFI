@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store/index'
-import AppNavigator from './navigators/index';
+import AppNavigator from './navigators/Nav';
 
 
 
