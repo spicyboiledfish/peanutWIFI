@@ -7,13 +7,14 @@ import Travel from '../page/Travel';
 import Play from '../page/Play';
 import Tab from './Tab';
 import Detail from '../page/Detail';
+import {Color} from 'LocalReference';
 
 const commonOptions = (route) =>({
     headerMode:'screen',
     initialRouteName: route,
     navigationOptions: {
-      headerStyle:{ backgroundColor: '#fb4747'},
-      headerTitleStyle: { color:'#fff', alignSelf: 'center',},
+      headerStyle:{ backgroundColor: Color.HSHeaderBgColor},
+      headerTitleStyle: { color: Color.HSWhiteColor, alignSelf: 'center',},
     },
 })
 

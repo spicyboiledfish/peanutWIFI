@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, StatusBar, Dimensions } from 'react-native';
 import add_action from '../action/index';
 import {connect} from 'react-redux';
+import {Color} from 'LocalReference';
+
+
+class WelfareHead extends Component {
+    render(){
+      return(
+        <View style={styles.topBox}>
+
+        </View>
+      );
+    }
+}
 
 
 class Welfare extends Component {
@@ -9,9 +21,9 @@ class Welfare extends Component {
       // console.log(navigation);
        return {
         headerTitle: "福利",
-        headerTintColor:'#fff',
+        headerTintColor:Color.HSWhiteColor,
         tabBarVisible:false,
-        headerStyle: { backgroundColor:'#fb4747'},
+        headerStyle: { backgroundColor: Color.HSHeaderBgColor},
         headerBackTitle:null,
        }
   }
@@ -25,7 +37,7 @@ class Welfare extends Component {
     return (
       <View>
         <StatusBar
-            backgroundColor={'#fb4747'}
+            backgroundColor={Color.HSHeaderBgColor}
             barStyle="light-content"
         />
         <View style={styles.container}>
@@ -61,6 +73,12 @@ const styles = StyleSheet.create({
       justifyContent:'center',
        alignItems:'center',
        backgroundColor: 'yellowgreen',
+    },
+    topBox:{
+      width: Dimensions.get('window').width * 0.9,
+      height: 600,
+      borderRadius: 10,
+      backgroundColor:Color.HSWhiteColor,
     }
 })
 
