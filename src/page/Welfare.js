@@ -23,7 +23,7 @@ class Welfare extends Component {
         headerTitle: "福利",
         headerTintColor:Color.HSWhiteColor,
         tabBarVisible:false,
-        headerStyle: { backgroundColor: Color.HSHeaderBgColor },
+        headerStyle: { backgroundColor: Color.HSHeaderBgColor, elevation:0, borderBottomWidth: 0 },
         headerBackTitle: null,
        }
   }
@@ -47,36 +47,74 @@ class Welfare extends Component {
           uri:'connect_netDes',
           text:'网络流量'
         }
-      ]
+      ];
+    let signDay = [1,2,3,4,5,6,7];
     return (
+        <View style={{flex:1, backgroundColor: Color.HSHeaderBgColor}}>
+
+
       <ScrollView style={styles.bigBox}>
         <StatusBar
             backgroundColor={Color.HSHeaderBgColor}
             barStyle="light-content"
         />
         <View style={styles.bigBoxView}>
-          <View style={styles.networkBox}>
-            <View style={styles.wifiView}>
-              <Image source={{uri: 'connect_success'}} style={{width:30,height:30}} />
-              <Text>已连接Quark-Test</Text>
+          <View style={styles.heightView}>
+            <View style={styles.circleView}>
+
             </View>
-            <View style={{flexDirection:'row'}}>
+          </View>
+
+          <View style={styles.networkBox}>
+              <View style={styles.networkTop}>
+                <View style={styles.wifiView}>
+                  <Image source={{uri: 'connect_success'}} style={{width:20,height:20}} />
+                  <Text style={styles.connectText}>已连接XiaoMi-307</Text>
+                </View>
+                <Text style={styles.wifiColor}>点击切换地铁WiFi</Text>
+              </View>
+            <View style={{flexDirection:'row', marginTop:15}}>
             {
               networkArry.map((item,index)=>{
                   return(
-                    <View key={index}>
-                        <Image source={{uri: item.uri}} style={{width:50, height:50}} />
-                        <Text>{item.text}</Text>
+                    <View key={index} style={styles.iconView}>
+                        <Image source={{uri: item.uri}} style={{width:40, height:40}} />
+                        <Text style={{fontSize:13, marginTop:8,color: Color.HSSix8Color}}>{item.text}</Text>
                     </View>
                   );
               })
             }
             </View>
-            <Text>点击切换地铁WiFi</Text>
-            <View>
-              <Text>38.26G 已省流量</Text>
-              <Text>1170元 已省话费</Text>
+
+            <View style={styles.netBottom}>
+              <Text style={{flex:1, textAlign:'center', justifyContent:'center'}}>38.26G <Text style={{color: Color.HSSix6Color}}>已省流量</Text></Text>
+              <Text style={{flex:1, textAlign:'center', justifyContent:'center'}}>1170元 <Text style={{color: Color.HSSix6Color}}>已省话费</Text></Text>
             </View>
+          </View>
+
+          <View style={styles.fangjinsuo}>
+            <Image source={require('../content/img/fjs.png')} style={{width:60, height:40, marginLeft:15, marginRight:20}}/>
+            <Text style={{color:Color.HSSix9Color}}>贷款就找房金所</Text>
+            <Text style={{color:Color.HSConnectTextColor, flex:1, textAlign:'right', marginRight:15}}>点击领取</Text>
+          </View>
+          <View style={styles.signUp}>
+              <View style={styles.signUpTop}>
+                  <Text style={{marginLeft:15}}>签到7天享KFC早餐优惠</Text>
+                  <Text style={{flex:1, textAlign:'right', marginRight:15, color: Color.HSSix8Color}}>查看更多</Text>
+              </View>
+              <View style={{flexDirection:'row', marginTop:15}}>
+              {
+                  signDay.map((item,index)=>{
+                      return(
+                          <View style={styles.daySign} key={index}>
+                              <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item}天</Text>
+                              <Image source={{uri:'current_go_sign'}} style={{width:30, height:35, resizeMode:Image.resizeMode.contain}}/>
+                          </View>
+
+                      );
+                  })
+              }
+              </View>
           </View>
           <View style={styles.container}>
             <Text>查看数字：{count}</Text>
@@ -95,6 +133,7 @@ class Welfare extends Component {
         </View>
         
       </ScrollView>
+        </View>
     )
   }
 }
@@ -103,9 +142,10 @@ const styles = StyleSheet.create({
     bigBox:{
       flex:1,
       backgroundColor: Color.HSGrayBgColor,
+
     },
     container: {
-       margin:100,
+       margin:150,
        alignItems:'center',
     },
     addBtn:{
@@ -123,17 +163,12 @@ const styles = StyleSheet.create({
        alignItems:'center',
        backgroundColor: 'yellowgreen',
     },
-    topBox:{
-      width: Dimensions.get('window').width * 0.9,
-      height: 600,
-      borderRadius: 10,
-      backgroundColor:Color.HSWhiteColor,
-    },
     networkBox:{
-      width: Dimensions.get('window').width * 0.9,
-      height: 150,
+      width: Dimensions.get('window').width -30,
+      height: 210,
       borderRadius: 6,
       backgroundColor:Color.HSWhiteColor,
+        marginTop:-150
     },
     bigBoxView:{
       justifyContent:'center',
@@ -141,6 +176,76 @@ const styles = StyleSheet.create({
     },
     wifiView:{
       flexDirection: 'row',
+        marginTop:25,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    connectText:{
+        color: Color.HSConnectTextColor,
+        fontSize:18,
+        fontWeight:'600',
+        marginLeft:5
+    },
+    networkTop:{
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    wifiColor:{
+        color: Color.HSSix9Color,
+        fontSize:12,
+        marginTop:5
+    },
+    iconView:{
+        width: (Dimensions.get('window').width-30) /3,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    netBottom:{
+        marginHorizontal:20,
+        borderTopWidth:0.5,
+        borderTopColor:Color.HSSixCColor,
+        marginTop:20,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
+        flex:1
+    },
+    circleView:{
+        width:600,
+        height:600,
+        borderRadius:300,
+        backgroundColor: Color.HSHeaderBgColor,
+        top:-450,
+    },
+    heightView:{
+        height:150,
+        overflow:'hidden',
+    },
+    fangjinsuo:{
+        width: Dimensions.get('window').width-30,
+        height:60,
+        backgroundColor: Color.HSWhiteColor,
+        marginTop:15,
+        borderRadius:6,
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    signUp:{
+        width: Dimensions.get('window').width-30,
+        height:120,
+        backgroundColor: Color.HSWhiteColor,
+        marginTop:15,
+        borderRadius:6,
+        flexDirection:'column',
+        paddingVertical:15
+    },
+    signUpTop:{
+        flexDirection:'row',
+    },
+    daySign:{
+        width: (Dimensions.get('window').width-30 )/7,
+        justifyContent:'center',
+        alignItems:'center',
     }
 })
 
