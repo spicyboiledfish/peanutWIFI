@@ -15,7 +15,7 @@
 * createStackNavigator（老式写法：StackNavigator）
 * createBottomTabNavigator（老式写法：TabNavigator）
 
-## 5.23 解决顶部navBar跟底部的tabBar冲突的问题。（要么顶部标题都为空，要么都一样）
+## 5.23 解决顶部navBar跟底部的tabBar冲突的问题。（要么顶部标题都为空，要么标题都一样）
 * ### 使用的react-navigation版本为2.0.1, react-native版本为0.55.4, react版本为16.3.1
 * ### 由于之前的写法：将createStackNavigator所获得的navigator作为最外层； 
 ```
