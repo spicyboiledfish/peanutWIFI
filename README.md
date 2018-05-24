@@ -120,4 +120,6 @@ const Tab = createBottomTabNavigator(
 * ### 现在解决方案如下：
 ### 将TabNavigator作为最外层，然后在原先创建stackNavigator的文件中创建五个stackNavigator，并export出去；每个stackNavigator都有自己的screen，和自己的initialRouteName；在Tab中基本不用动；现在可以修改每个页面中的navigationOptions去改变每个stackNavigator的头部标题及是否有title等等属性，都可自由发挥。
 * ![TabNavigator和StackNavigator冲突解决](./exhibition/navigation.gif)
-                    
+
+## 5.24 完成首页福利的基本UI
+* ![首页基本UI](./exhibition/welfare.png)
