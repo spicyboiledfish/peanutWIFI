@@ -4298,6 +4298,12 @@ react-navigation-deprecated-tab-navigator@1.2.0:
   dependencies:
     react-native-tab-view "^0.0.74"
 
+react-navigation-redux-helpers@^1.1.1:
+  version "1.1.1"
+  resolved "http://registry.npm.taobao.org/react-navigation-redux-helpers/download/react-navigation-redux-helpers-1.1.1.tgz#6832c831e3fa47fb030012fac8ebdf37e45bda9f"
+  dependencies:
+    invariant "^2.2.2"
+
 react-navigation-tabs@0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/react-navigation-tabs/download/react-navigation-tabs-0.2.0.tgz#d25be64e01a728c893a93cfeee6b176ab74d67de"
@@ -4417,6 +4423,14 @@ realpath-native@^1.0.0:
   resolved "http://registry.npm.taobao.org/realpath-native/download/realpath-native-1.0.0.tgz#7885721a83b43bd5327609f0ddecb2482305fdf0"
   dependencies:
     util.promisify "^1.0.0"
+
+redux-devtools-extension@^2.13.2:
+  version "2.13.2"
+  resolved "http://registry.npm.taobao.org/redux-devtools-extension/download/redux-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
 redux@4.0.0:
   version "4.0.0"

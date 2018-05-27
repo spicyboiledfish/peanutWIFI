@@ -12,6 +12,7 @@ const Color = {
     HSSixCColor:'#cccccc',
     HSSixBColor:'#bbbbbb',
     HSSix6Color:'#666666',
+    HSTransparent: 'transparent'
 }
 
 export default Color;

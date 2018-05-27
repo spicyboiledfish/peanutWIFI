@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, StatusBar, Dimensions, ScrollView, Image } from 'react-native';
-import add_action from '../action/index';
+import {add_action, fetch_welfare_signup} from '../../action/index';
 import {connect} from 'react-redux';
 import {Color} from 'LocalReference';
-
-
-class WelfareHead extends Component {
-    render(){
-      return(
-        <View>
-
-        </View>
-      );
-    }
-}
+import API from '../../services/API'
 
 
 class Welfare extends Component {
   static navigationOptions = ({navigation}) => {
-      console.log(navigation);
+      // console.log(navigation);
        return {
         headerTitle: "福利",
         headerTintColor:Color.HSWhiteColor,
@@ -28,12 +18,52 @@ class Welfare extends Component {
        }
   }
 
+  componentDidMount(){
+    const {fetch_welfare_signup} = this.props;
+    fetch_welfare_signup();
+  }
+
   detailBtn(){
     this.props.navigation.navigate('Detail', { title: '下一页'})
   }
 
+  signUpBtn(){
+     this.props.navigation.navigate('SignUp', { title: '签到'})
+  }
+
+  //请求签到接口：
+  getSignUpInfo(){
+      console.log('进来了吗');
+      fetch(API.welfare.signUp, {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              "baseInfo": {
+                  "versionCode": 356,
+                  "sign": "fbb4636f6f6f43467543609abacd8bc9",
+                  "deviceCode": "fae64ac10908e06e1e53d52cfd9f2893",
+                  "userId": "13365512366",
+                  "platform": 2
+              }
+          })
+      })
+      .then((response) => response.json())
+      .then((result) => {
+              console.log('嘻嘻',result);
+              if(result.resultCode == '0' && result.userTotal){
+                     
+              }
+          })
+          .catch((error) => {
+              console.log("error = " + error)
+          })
+  }
+
   render() {
-    const {count, addCount} = this.props;
+    const {count, addCount, fetch_welfare_signup} = this.props;
     let networkArry = [
         {
           uri:'connect_netSpeed',
@@ -92,15 +122,14 @@ class Welfare extends Component {
             </View>
           </View>
 
-          <View style={styles.fangjinsuo}>
-            <Image source={require('../content/img/fjs.png')} style={{width:60, height:40, marginLeft:15, marginRight:20}}/>
-            <Text style={{color:Color.HSSix9Color}}>贷款就找房金所</Text>
-            <Text style={{color:Color.HSConnectTextColor, flex:1, textAlign:'right', marginRight:15}}>点击领取</Text>
-          </View>
+          {/* 签到 */}
           <View style={styles.signUp}>
               <View style={styles.signUpTop}>
-                  <Text style={{marginLeft:15}}>签到7天享KFC早餐优惠</Text>
-                  <Text style={{flex:1, textAlign:'right', marginRight:15, color: Color.HSSix8Color}}>查看更多</Text>
+                  <Text style={{marginLeft:15, color: Color.HSSix6Color}}>签到7天享KFC早餐优惠</Text>
+                  <TouchableOpacity style={{flex:1,flexDirection:'row'}} onPress={()=>this.signUpBtn()}>
+                      <Text style={{fontSize:13, flex:1, textAlign:'right', marginRight:5, color: Color.HSSixCColor}}>查看更多</Text>
+                      <Image source={{uri:'arrowhead'}} style={{width:8,height:14, marginRight:15}}/>
+                  </TouchableOpacity>
               </View>
               <View style={{flexDirection:'row', marginTop:15}}>
               {
@@ -116,6 +145,16 @@ class Welfare extends Component {
               }
               </View>
           </View>
+
+          {/* 花粉福利 */}
+          <View style={styles.fangjinsuo}>
+            <Image source={require('../../content/img/fjs.png')} style={{width:60, height:40, marginLeft:15, marginRight:20}}/>
+            <Text style={{color:Color.HSSix9Color}}>贷款就找房金所</Text>
+            <Text style={{color:Color.HSConnectTextColor, flex:1, textAlign:'right', marginRight:15}}>点击领取</Text>
+          </View>
+
+
+
           <View style={styles.container}>
             <Text>查看数字：{count}</Text>
             <TouchableOpacity onPress={()=>addCount()} style={styles.addBtn}>
@@ -251,12 +290,15 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     count: state.addReducer.count,
-  
+    data: state.signReducer.data
 })
 
 const mapDispatchToProps = (dispatch) =>({
     addCount: ()=>{
       dispatch(add_action())
+    },
+    fetch_welfare_signup: ()=>{
+        dispatch(fetch_welfare_signup())
     }
 })
 

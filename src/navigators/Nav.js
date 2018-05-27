@@ -1,21 +1,20 @@
 import {StackNavigator, createStackNavigator} from 'react-navigation';
 
-import Welfare from '../page/Welfare';
+import Welfare from '../page/welfare/Welfare';
 import News from '../page/News';
 import Metro from '../page/Metro';
 import Travel from '../page/Travel';
 import Play from '../page/Play';
 import Tab from './Tab';
+import SignUp from '../page/welfare/SignUp'
 import Detail from '../page/Detail';
 import {Color} from 'LocalReference';
+import NavItem from './NavItem';
 
-const commonOptions = (route) =>({
-    headerMode:'screen',
-    initialRouteName: route,
-    navigationOptions: {
-      headerStyle:{ backgroundColor: Color.HSHeaderBgColor},
-      headerTitleStyle: { color: Color.HSWhiteColor, alignSelf: 'center',},
-    },
+const navigationOptions = ({navigation})=>({
+    headerStyle:{ backgroundColor: Color.HSHeaderBgColor},
+    headerTitleStyle: { color: Color.HSWhiteColor, alignSelf: 'center',},
+    headerLeft: <NavItem onPress={()=>navigation.goBack()}/>,
 })
 
 const WelfareNavigator = createStackNavigator(
@@ -25,9 +24,10 @@ const WelfareNavigator = createStackNavigator(
       }, 
       Detail:{
         screen:Detail
-      }
+      },
+      SignUp,
     },
-    commonOptions("Welfare")
+    navigationOptions
 );
 
 const NewsNavigator = createStackNavigator(
@@ -36,7 +36,7 @@ const NewsNavigator = createStackNavigator(
       screen: News,
     }, 
   },
-  commonOptions("News")
+  navigationOptions
   
 );
 const MetroNavigator = createStackNavigator(
@@ -45,7 +45,7 @@ const MetroNavigator = createStackNavigator(
       screen: Metro,
     }, 
   },
-  commonOptions("Metro")
+  navigationOptions
   
 );
 const TravelNavigator = createStackNavigator(
@@ -54,7 +54,7 @@ const TravelNavigator = createStackNavigator(
       screen: Travel,
     }, 
   },
-  commonOptions("Travel")
+    navigationOptions
   
 );
 
@@ -64,7 +64,7 @@ const PlayNavigator = createStackNavigator(
       screen: Play,
     }, 
   },
-  commonOptions("Play")
+    navigationOptions
   
 );
 
