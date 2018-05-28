@@ -7,7 +7,6 @@ const add_action = ()=>({
 
 const fetch_welfare_signup = ()=>{
     return (dispatch) =>{
-        
         fetch(API.welfare.signUp, {
             method: 'POST',
             headers: {
@@ -26,10 +25,10 @@ const fetch_welfare_signup = ()=>{
         })
         .then((response) => response.json())
         .then((result) => {
-                console.log('嘻嘻',result);
+                // console.log('嘻嘻',result);
                 dispatch({
                     type:fetch_welfare_type,
-                    data:result
+                    signData:result
                 })
             })
             .catch((error) => {

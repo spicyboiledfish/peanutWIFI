@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, StatusBar, Dimensions, ScrollView, Image } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, StatusBar, Dimensions, ScrollView, Image, ImageBackground } from 'react-native';
 import {add_action, fetch_welfare_signup} from '../../action/index';
 import {connect} from 'react-redux';
 import {Color} from 'LocalReference';
@@ -28,42 +28,24 @@ class Welfare extends Component {
   }
 
   signUpBtn(){
-     this.props.navigation.navigate('SignUp', { title: '签到'})
+    const {signData} = this.props;
+     this.props.navigation.navigate('SignUp', { title: '签到', signData: signData})
   }
 
-  //请求签到接口：
-  getSignUpInfo(){
-      console.log('进来了吗');
-      fetch(API.welfare.signUp, {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              "baseInfo": {
-                  "versionCode": 356,
-                  "sign": "fbb4636f6f6f43467543609abacd8bc9",
-                  "deviceCode": "fae64ac10908e06e1e53d52cfd9f2893",
-                  "userId": "13365512366",
-                  "platform": 2
-              }
-          })
-      })
-      .then((response) => response.json())
-      .then((result) => {
-              console.log('嘻嘻',result);
-              if(result.resultCode == '0' && result.userTotal){
-                     
-              }
-          })
-          .catch((error) => {
-              console.log("error = " + error)
-          })
-  }
 
   render() {
-    const {count, addCount, fetch_welfare_signup} = this.props;
+    const {count, addCount, signData} = this.props;
+    // const {data} = this.props.signData;
+    // if(data){
+    //     let title = data.title;
+    //     let signList = data.signList;
+    // }
+    const data = signData.data;
+    const title = data && data.title;
+    let userTotal = data && data.userTotal;
+    let signList = (data && data.signList) || [];
+
+    console.log('嘻嘻',data,title,signList);
     let networkArry = [
         {
           uri:'connect_netSpeed',
@@ -125,7 +107,7 @@ class Welfare extends Component {
           {/* 签到 */}
           <View style={styles.signUp}>
               <View style={styles.signUpTop}>
-                  <Text style={{marginLeft:15, color: Color.HSSix6Color}}>签到7天享KFC早餐优惠</Text>
+                  <Text style={{marginLeft:15, color: Color.HSSix6Color}}>{title}</Text>
                   <TouchableOpacity style={{flex:1,flexDirection:'row'}} onPress={()=>this.signUpBtn()}>
                       <Text style={{fontSize:13, flex:1, textAlign:'right', marginRight:5, color: Color.HSSixCColor}}>查看更多</Text>
                       <Image source={{uri:'arrowhead'}} style={{width:8,height:14, marginRight:15}}/>
@@ -133,16 +115,19 @@ class Welfare extends Component {
               </View>
               <View style={{flexDirection:'row', marginTop:15}}>
               {
-                  signDay.map((item,index)=>{
+                signList.map((item,index)=>{
+                    console.log(item);
                       return(
                           <View style={styles.daySign} key={index}>
-                              <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item}天</Text>
-                              <Image source={{uri:'current_go_sign'}} style={{width:30, height:35, resizeMode:Image.resizeMode.contain}}/>
+                              <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item.signDay}天</Text>
+                              <ImageBackground style={{width:36,height:39}} source={{uri:item.picUrl}}> 
+                                { item.signDay == userTotal ? <Image source={{uri:'sign_ad_suc'}} style={{width:36, height:39}}/> : null}
+                              </ImageBackground>
                           </View>
 
                       );
                   })
-              }
+                }
               </View>
           </View>
 
@@ -290,7 +275,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     count: state.addReducer.count,
-    data: state.signReducer.data
+    signData: state.signReducer.signData
 })
 
 const mapDispatchToProps = (dispatch) =>({

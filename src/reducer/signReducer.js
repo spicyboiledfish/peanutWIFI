@@ -2,14 +2,14 @@
 import {fetch_welfare_type} from '../action/actionType';
 
 const initialState = {
-    data:{}
+    signData:{}
 }
 
 const signReducer = (state = initialState, action)=>{
     switch (action.type){
         case fetch_welfare_type:
             return {
-                ...state, data: action.data
+                ...state, signData: action.signData
             }
         default:
             return state;
