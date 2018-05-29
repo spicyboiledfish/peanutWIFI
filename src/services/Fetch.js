@@ -26,7 +26,7 @@ const Fetch = {
         })
         .then((response) => response.json())
         .then((result) => {
-                callback()
+                callback(result)
             })
             .catch((error) => {
                 console.log("error = " + error)
