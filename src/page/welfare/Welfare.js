@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, StatusBar, Dimensions, ScrollView, Image, ImageBackground } from 'react-native';
-import {add_action, fetch_welfare_signup} from '../../action/index';
+import {add_action, fetch_welfare_signup, fetch_welfare_pollen} from '../../action/index';
 import {connect} from 'react-redux';
 import {Color} from 'LocalReference';
 import API from '../../services/API';
@@ -20,8 +20,9 @@ class Welfare extends Component {
   }
 
   componentDidMount(){
-    const {fetch_welfare_signup} = this.props;
+    const {fetch_welfare_signup, fetch_welfare_pollen} = this.props;
     fetch_welfare_signup();
+    fetch_welfare_pollen();
   }
 
   detailBtn(){
@@ -35,7 +36,7 @@ class Welfare extends Component {
 
 
   render() {
-    const {count, addCount, signData} = this.props;
+    const {count, addCount, signData, pollen} = this.props;
     // const {data} = this.props.signData;
     // if(data){
     //     let title = data.title;
@@ -45,6 +46,8 @@ class Welfare extends Component {
     const title = data && data.title;
     let userTotal = data && data.userTotal;
     let signList = (data && data.signList) || [];
+
+    console.log('莉莉',pollen);
 
     console.log('嘻嘻',data,title,signList);
     let networkArry = [
@@ -140,6 +143,43 @@ class Welfare extends Component {
           </View>
 
           {/* 花粉福利 */}
+          <View style={styles.huafen}>
+                <View style={styles.signUpTop}>
+                    <Text style={{marginLeft:15, color: Color.HSSix6Color}}>花粉福利</Text>
+                    <TouchableOpacity style={{flex:1,flexDirection:'row'}}>
+                        <Text style={{fontSize:13, flex:1, textAlign:'right', marginRight:5, color: Color.HSSixCColor}}>查看更多</Text>
+                        <Image source={{uri:'arrowhead'}} style={{width:8,height:14, marginRight:15}}/>
+                    </TouchableOpacity>
+                </View>
+                <Swiper 
+                    dot={<View style={styles.dot}/>}  
+                    activeDot={<View style={styles.activeDot}/>}  
+                    paginationStyle={styles.paginationStyle}  
+                    height={160}
+                    loop={false}>
+
+                    {
+                        pollen.map((item,index)=>{
+                            return(
+                                
+                                    <Image 
+                                        source={{uri:item.picUrl}} 
+                                        style={{
+                                            width:Dimensions.get('window').width-30,
+                                            height:95, 
+                                            borderRadius:20,
+                                            marginTop:10, 
+                                            resizeMode:Image.resizeMode.contain
+                                    }}/>
+                                
+                                
+                            );
+                        })
+                    }
+                    
+                </Swiper>   
+
+            </View>
           
            
 
@@ -273,12 +313,44 @@ const styles = StyleSheet.create({
         width: (Dimensions.get('window').width-30 )/7,
         justifyContent:'center',
         alignItems:'center',
+    },
+    huafen:{
+        width: Dimensions.get('window').width-30,
+        height:160,
+        backgroundColor: Color.HSWhiteColor,
+        marginTop:15,
+        borderRadius:6,
+        flexDirection:'column',
+        paddingTop:15,
+        paddingBottom:10
+    },
+    dot: {  
+        backgroundColor: Color.HSHeaderBgColor,  
+        opacity: 0.3,  
+        width: 8,  
+        height: 8,  
+        borderRadius: 7,  
+        marginLeft: 7,  
+        marginRight: 7,  
+        zIndex: 1,  
+    },  
+    activeDot: {  
+        backgroundColor: Color.HSHeaderBgColor,  
+        width: 8,  
+        height: 8,  
+        borderRadius: 7,  
+        marginLeft: 7,  
+        marginRight: 7  
+    },  
+    paginationStyle: {  
+        
     }
 })
 
 const mapStateToProps = (state) => ({
     count: state.addReducer.count,
-    signData: state.signReducer.signData
+    signData: state.signReducer.signData,
+    pollen: state.pollenReducer.pollen
 })
 
 const mapDispatchToProps = (dispatch) =>({
@@ -287,6 +359,9 @@ const mapDispatchToProps = (dispatch) =>({
     },
     fetch_welfare_signup: ()=>{
         dispatch(fetch_welfare_signup())
+    },
+    fetch_welfare_pollen: ()=>{
+        dispatch(fetch_welfare_pollen())
     }
 })
 

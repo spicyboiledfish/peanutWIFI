@@ -1,5 +1,5 @@
 
-import {fetch_welfare_type} from '../action/actionType';
+import {welfare_type} from '../action/actionType';
 
 const initialState = {
     signData:{}
@@ -7,7 +7,7 @@ const initialState = {
 
 const signReducer = (state = initialState, action)=>{
     switch (action.type){
-        case fetch_welfare_type:
+        case welfare_type.fetch_signInfo:
             return {
                 ...state, signData: action.signData
             }
