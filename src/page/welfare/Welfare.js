@@ -3,7 +3,8 @@ import { Text, View, TouchableOpacity, StyleSheet, StatusBar, Dimensions, Scroll
 import {add_action, fetch_welfare_signup} from '../../action/index';
 import {connect} from 'react-redux';
 import {Color} from 'LocalReference';
-import API from '../../services/API'
+import API from '../../services/API';
+import Swiper from 'react-native-swiper';
 
 
 class Welfare extends Component {
@@ -131,14 +132,16 @@ class Welfare extends Component {
               </View>
           </View>
 
-          {/* 花粉福利 */}
+          {/* 游戏广告 */}
           <View style={styles.fangjinsuo}>
             <Image source={require('../../content/img/fjs.png')} style={{width:60, height:40, marginLeft:15, marginRight:20}}/>
             <Text style={{color:Color.HSSix9Color}}>贷款就找房金所</Text>
             <Text style={{color:Color.HSConnectTextColor, flex:1, textAlign:'right', marginRight:15}}>点击领取</Text>
           </View>
 
-
+          {/* 花粉福利 */}
+          
+           
 
           <View style={styles.container}>
             <Text>查看数字：{count}</Text>
