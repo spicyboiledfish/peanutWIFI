@@ -120,7 +120,7 @@ class Welfare extends Component {
                       return(
                           <View style={styles.daySign} key={index}>
                               <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item.signDay}天</Text>
-                              <ImageBackground style={{width:36,height:39}} source={{uri:item.picUrl}}> 
+                              <ImageBackground style={{width:36,height:39}} source={{uri:item.picUrl ? item.picUrl : ''}}> 
                                 { item.signDay == userTotal ? <Image source={{uri:'sign_ad_suc'}} style={{width:36, height:39}}/> : null}
                               </ImageBackground>
                           </View>
