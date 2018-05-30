@@ -1,11 +1,11 @@
 
-import add_action_type from '../action/actionType';
+import {add_action_type} from '../action/actionType';
 
 const initialState = {
     count:0
 }
 
-const addReducer = (state = initialState, action)=>{
+export const addReducer = (state = initialState, action)=>{
     switch (action.type){
         case add_action_type:
             return {
@@ -15,5 +15,3 @@ const addReducer = (state = initialState, action)=>{
             return state;
     }
 }
-
-export default addReducer;

@@ -347,8 +347,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     count: state.addReducer.count,
-    signData: state.signReducer.signData,
-    pollen: state.pollenReducer.pollen
+    
+    signData: state.welfareReducer.signData,
+    pollen: state.welfareReducer.pollen
 })
 
 const mapDispatchToProps = (dispatch) =>({

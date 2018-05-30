@@ -1,7 +1,7 @@
-import addReducer from './addReducer';
-import {signReducer, pollenReducer} from './welfareReducer';
+import {addReducer} from './addReducer';
+import {welfareReducer} from './welfareReducer';
 import {combineReducers} from 'redux';
 
-const reducer = combineReducers({addReducer,signReducer,pollenReducer});
+const reducer = combineReducers({addReducer,welfareReducer});
 
 export default reducer;
