@@ -160,8 +160,9 @@ class Welfare extends Component {
 
                     {
                         pollen.map((item,index)=>{
-                            return(                               
-                                    <Image 
+                            return(       
+                                    <Image
+                                        key={index} 
                                         source={{uri:item.picUrl}} 
                                         style={{
                                             width:Dimensions.get('window').width-30,

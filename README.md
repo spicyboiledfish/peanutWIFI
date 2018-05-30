@@ -123,3 +123,10 @@ const Tab = createBottomTabNavigator(
 
 ## 5.24 完成首页福利的基本UI
 * ![首页基本UI](./exhibition/welfare.png)
+
+## 5.30 加入fetch请求API接口
+* 封装post和get请求
+* 将reducer和actionType都整合，优化了目录结构
+* 对首页的签到以及签到详情添加API接口调试
+* 完成花粉福利的接口调试
+* ![首页加入fetch请求](./exhibition/sign.gif)

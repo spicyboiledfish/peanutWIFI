@@ -28,7 +28,7 @@ const add_action = ()=>({
 //         .then((result) => {
 //                 // console.log('嘻嘻小睿',result);
 //                 dispatch({
-//                     type:welfare_type.fetch_signInfo,
+//                     type:welfare_type.signInfo,
 //                     signData:result
 //                 })
 //             })
@@ -44,13 +44,13 @@ const fetch_welfare_signup = ()=>{
             "versionCode": 356,
             "sign": "fbb4636f6f6f43467543609abacd8bc9",
             "deviceCode": "fae64ac10908e06e1e53d52cfd9f2893",
-            "userId": "13365512366",
+            "userId": "13818231145",
             "platform": 2
         }
     };
     return (dispatch)=>{
         let callback = (result)=>dispatch({
-            type:welfare_type.fetch_signInfo,
+            type:welfare_type.signInfo,
             signData: result      
         })
         Fetch.post(API.welfare.signUp, params, callback);
@@ -64,14 +64,14 @@ const fetch_welfare_pollen = ()=>{
             "versionCode": 356,
             "sign": "fbb4636f6f6f43467543609abacd8bc9",
             "deviceCode": "fae64ac10908e06e1e53d52cfd9f2893",
-            "userId": "13365512366",
+            "userId": "13818231145",
             "platform": 2
         },
         "cityName": "上海市"
     };
     return (dispatch)=>{
         let callback = (result)=>dispatch({
-            type:welfare_type.fetch_pollen,
+            type:welfare_type.pollen,
             pollen: result      
         })
         Fetch.post(API.welfare.pollen, params, callback);
