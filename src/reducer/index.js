@@ -1,6 +1,5 @@
 import addReducer from './addReducer';
-import signReducer from './signReducer';
-import pollenReducer from './pollenReducer';
+import {signReducer, pollenReducer} from './welfareReducer';
 import {combineReducers} from 'redux';
 
 const reducer = combineReducers({addReducer,signReducer,pollenReducer});
