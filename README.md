@@ -129,4 +129,5 @@ const Tab = createBottomTabNavigator(
 * 将reducer和actionType都整合，优化了目录结构
 * 对首页的签到以及签到详情添加API接口调试
 * 完成花粉福利的接口调试
+* export和export default导致引用时加不加{}的问题
 * ![首页加入fetch请求](./exhibition/sign.gif)
