@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Dimensions, Image, TouchableOpacity,ImageBackground } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, Image, TouchableOpacity,ImageBackground, StatusBar } from 'react-native'
 import {Color} from 'LocalReference';
 import NavItem from '../../navigators/NavItem'
 
@@ -31,6 +31,10 @@ export default class SignUp extends Component {
       console.log('小睿的哟',signData);
       return (
         <View style={styles.container}>
+          <StatusBar
+                backgroundColor={Color.HSHeaderBgColor}
+                barStyle="default"
+          />
           <View style={styles.imageView}>
               <Image source={{uri:"sign_icon_detail"}} style={{width:70,height:60}} />
               <Text style={{marginTop:10, color: Color.HSSix6Color}}>总计签到{signData.data.userTotal}天</Text>

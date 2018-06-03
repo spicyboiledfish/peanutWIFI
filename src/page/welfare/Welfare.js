@@ -34,6 +34,11 @@ class Welfare extends Component {
      this.props.navigation.navigate('SignUp', { title: '签到', signData: signData})
   }
 
+  goToSign(){
+      console.log('进来了吗')
+      alert("签到成功！");
+  }
+
 
   render() {
     const {count, addCount, signData, pollen} = this.props;
@@ -120,15 +125,16 @@ class Welfare extends Component {
               <View style={{flexDirection:'row', marginTop:15}}>
               {
                 signList.map((item,index)=>{
-                    console.log(item);
+                    console.log('嘿嘿',item.signDay);
+                    console.log('查看',index);
                       return(
                           <View style={styles.daySign} key={index}>
                               <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item.signDay}天</Text>
                               <ImageBackground style={{width:36,height:39}} source={{uri:item.picUrl ? item.picUrl : ''}}> 
                                 { item.signDay == userTotal ? <Image source={{uri:'sign_ad_suc'}} style={{width:36, height:39}}/> : null}
+                                { index == userTotal ? <TouchableOpacity activeOpacity={1}  onPress={()=>{this.goToSign()}}><Image source={{uri:'current_go_sign'}} style={{width:36, height:39}}/></TouchableOpacity> : null}
                               </ImageBackground>
                           </View>
-
                       );
                   })
                 }
@@ -347,7 +353,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     count: state.addReducer.count,
-    
+
     signData: state.welfareReducer.signData,
     pollen: state.welfareReducer.pollen
 })
