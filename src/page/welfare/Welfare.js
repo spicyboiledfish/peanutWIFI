@@ -98,10 +98,10 @@ class Welfare extends Component {
             {
               networkArry.map((item,index)=>{
                   return(
-                    <View key={index} style={styles.iconView}>
+                    <TouchableOpacity key={index} style={styles.iconView} onPress={()=>{this.props.navigation.navigate('Speed')}}>
                         <Image source={{uri: item.uri}} style={{width:40, height:40}} />
                         <Text style={{fontSize:13, marginTop:8,color: Color.HSSix8Color}}>{item.text}</Text>
-                    </View>
+                    </TouchableOpacity>
                   );
               })
             }
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     iconView:{
         width: (Dimensions.get('window').width-30) /3,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
     },
     netBottom:{
         marginHorizontal:20,

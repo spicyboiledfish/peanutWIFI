@@ -12,7 +12,9 @@ const Color = {
     HSSixCColor:'#cccccc',
     HSSixBColor:'#bbbbbb',
     HSSix6Color:'#666666',
-    HSTransparent: 'transparent'
+    HSTransparent: 'transparent',
+    HSSixEColor:'#eeeeee',
+    HSProgress_Color:'#e7e4e9',   //进度条的色值
 }
 
 export default Color;

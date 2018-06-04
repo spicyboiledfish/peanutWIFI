@@ -10,6 +10,7 @@ import SignUp from '../page/welfare/SignUp'
 import Detail from '../page/Detail';
 import {Color} from 'LocalReference';
 import NavItem from './NavItem';
+import Speed from '../page/welfare/Speed'
 
 const navigationOptions = ({navigation})=>({
     headerStyle:{ backgroundColor: Color.HSHeaderBgColor},
@@ -25,7 +26,7 @@ const WelfareNavigator = createStackNavigator(
       Detail:{
         screen:Detail
       },
-      SignUp,
+      SignUp,Speed,
     },
     navigationOptions
 );
