@@ -131,3 +131,18 @@ const Tab = createBottomTabNavigator(
 * 完成花粉福利的接口调试
 * export和export default导致引用时加不加{}的问题
 * ![首页加入fetch请求](./exhibition/sign.gif)
+
+## 6.6 添加了资讯页面的header头
+* 在网络测速中增加仪表盘组件
+* 对资讯页面的头部用headerLeft和headerTitle分别引入组件完成改造
+
+
+
+
+
+
+
+
+
+
+
