@@ -1,6 +1,6 @@
 import {createBottomTabNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
 import Welfare from '../page/welfare/Welfare';
-import News from '../page/News';
+import News from '../page/news/News';
 import Metro from '../page/Metro';
 import Travel from '../page/Travel';
 import Play from '../page/Play';
