@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, StatusBar } from 'react-native'
+import { Text, View, StyleSheet, StatusBar,Dimensions } from 'react-native'
 import {Color} from 'LocalReference'
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view'
 import ContentList from './ContentList'
+const DeviceWidth = Dimensions.get('window').width;
+
 
 class NewsNavLeft extends Component{
   render(){
@@ -32,13 +34,28 @@ export default class News extends Component {
     headerTitle: <NewsNavCenter/>,
     headerLeft: <NewsNavLeft />,
     headerStyle:{
+      backgroundColor: Color.HSWhiteColor,
       borderBottomColor: Color.HSTransparent,
     }
  }
 
  _renderTabBar(){
     return(
-      <ScrollableTabBar />
+      <ScrollableTabBar 
+          activeTextColor={Color.HSHeaderBgColor}
+          inactiveTextColor={Color.HSSix6Color}
+          textStyle={{width:40,textAlign:'center'}}
+          tabStyle={{width:DeviceWidth/6}}
+          style={{height:45,marginTop:0, borderBottomWidth:0, backgroundColor:Color.HSWhiteColor}}
+          underlineStyle={{
+            backgroundColor:Color.HSHeaderBgColor, 
+            width:24,
+            height:2,             
+            marginHorizontal:(DeviceWidth-24*6)/12,
+            marginBottom:5,
+            justifyContent:'center',
+          }}
+          />
     );
  }
 
@@ -49,14 +66,14 @@ export default class News extends Component {
             backgroundColor={Color.HSHeaderBgColor}
             barStyle="default"
         />
-        <ScrollableTabView renderTabBar={() => this._renderTabBar()}>
-          <ContentList tabLabel="React"/>
-          <ContentList tabLabel="React"/>
-          <ContentList tabLabel="React"/>
-          <ContentList tabLabel="React"/>
-          <ContentList tabLabel="React"/>
-          <ContentList tabLabel="React"/>
-          <ContentList tabLabel="React"/>
+        <ScrollableTabView renderTabBar={() => this._renderTabBar()} scrollWithoutAnimation={true}>
+            <ContentList tabLabel="有料" />
+            <ContentList tabLabel="上海"/>
+            <ContentList tabLabel="娱乐"/>
+            <ContentList tabLabel="汽车"/>
+            <ContentList tabLabel="好奇"/>
+            <ContentList tabLabel="治愈"/>
+            <ContentList tabLabel="时尚"/>
         </ScrollableTabView>
       </View>
     )
@@ -66,7 +83,7 @@ export default class News extends Component {
 const styles = StyleSheet.create({
   container:{
     justifyContent: 'center',
-    marginTop:20
+    flex:1
   },
 })
 

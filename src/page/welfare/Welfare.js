@@ -39,6 +39,10 @@ class Welfare extends Component {
       alert("签到成功！");
   }
 
+  toIconBtn(item){
+    this.props.navigation.navigate(item);
+  }
+
 
   render() {
     const {count, addCount, signData, pollen} = this.props;
@@ -58,15 +62,18 @@ class Welfare extends Component {
     let networkArry = [
         {
           uri:'connect_netSpeed',
-          text:'网络测速'
+          text:'网络测速',
+          name:'Speed',
         },
         {
           uri:'connect_netCheck',
-          text:'网络诊断'
+          text:'网络诊断',
+          name:'TestNet',
         },
         {
           uri:'connect_netDes',
-          text:'网络流量'
+          text:'网络流量',
+          name:'Flow',
         }
       ];
     let signDay = [1,2,3,4,5,6,7];
@@ -98,7 +105,7 @@ class Welfare extends Component {
             {
               networkArry.map((item,index)=>{
                   return(
-                    <TouchableOpacity key={index} style={styles.iconView} onPress={()=>{this.props.navigation.navigate('Speed')}}>
+                    <TouchableOpacity key={index} style={styles.iconView} onPress={()=>{this.toIconBtn(item.name)}}>
                         <Image source={{uri: item.uri}} style={{width:40, height:40}} />
                         <Text style={{fontSize:13, marginTop:8,color: Color.HSSix8Color}}>{item.text}</Text>
                     </TouchableOpacity>
