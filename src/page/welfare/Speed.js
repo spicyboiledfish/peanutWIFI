@@ -50,7 +50,7 @@ export default class Speed extends Component {
             progressRadius={130}
             degreeTextRadius={145}
             radius={170}
-            contentStrokeColors={[Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor]}
+            contentStrokeColors={[Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor,Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor, Color.HSSixEColor]}
             centerSpotRadius={12}
             progressColor={Color.HSHeaderBgColor}
             strokeWidth={2}
