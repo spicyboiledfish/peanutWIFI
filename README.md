@@ -140,6 +140,15 @@ const Tab = createBottomTabNavigator(
 ## 6.6 添加了资讯页面的header头
 * 在网络测速中增加仪表盘组件
 * 对资讯页面的头部用headerLeft和headerTitle分别引入组件完成改造
+* 解决了网络测速的仪表盘组件显示不完全的bug
+* 完善了资讯Tab的头部navbar及scrollable-tab-view的组件使用
+
+
+
+
+
+
+
 
 
 
