@@ -10,6 +10,7 @@ export default class ContentList extends Component {
     console.log('再看',bannerList)
     return (
       <View style={{height:200}}>
+      { bannerList ? 
         <Swiper 
           key={bannerList.length}
           dot={<View style={styles.dot}/>}  
@@ -41,7 +42,8 @@ export default class ContentList extends Component {
               }) : ''
           }
           
-        </Swiper>  
+        </Swiper> :null
+      } 
       </View>
     )
   }
