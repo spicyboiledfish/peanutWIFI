@@ -165,11 +165,14 @@ class Welfare extends Component {
                     </TouchableOpacity>
                 </View>
                 <Swiper 
+                    key={pollen.length}
                     dot={<View style={styles.dot}/>}  
                     activeDot={<View style={styles.activeDot}/>}  
                     paginationStyle={styles.paginationStyle}  
                     height={160}
-                    loop={false}>
+                    autoplay={true}
+                    autoplayTimeout={3}
+                    loop={true}>
 
                     {
                         pollen.map((item,index)=>{

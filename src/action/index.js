@@ -1,4 +1,4 @@
-import {add_action_type, welfare_type} from './actionType';
+import {add_action_type, welfare_type, news_type} from './actionType';
 import API from '../services/API';
 import Fetch from '../services/Fetch';
 
@@ -78,4 +78,25 @@ const fetch_welfare_pollen = ()=>{
     }
 }
 
-export {add_action, fetch_welfare_signup, fetch_welfare_pollen};
+const fetch_news_banner = ()=>{
+    let params = {
+        "baseInfo": {
+            "versionCode": 356,
+            "sign": "29180cc1f656ae3ee978c78076f11fc0",
+            "deviceCode": "81b31b20154eac425396cdcc0f1f0d76",
+            "userId": "13818231145",
+            "platform": 2
+        },
+        "cityName": "上海",
+        "channelKey": "youliao"
+    };
+    return (dispatch)=>{
+        let callback = (result)=>dispatch({
+            type:news_type.banner,
+            bannerList: result.data      
+        })
+        Fetch.post(API.news.banner, params, callback);
+    }
+}
+
+export {add_action, fetch_welfare_signup, fetch_welfare_pollen, fetch_news_banner};

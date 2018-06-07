@@ -1,36 +1,44 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native'
 import Swiper from 'react-native-swiper';
 import {Color} from 'LocalReference'
 
 export default class ContentList extends Component {
   
   render() {
-    let arr=[];
+    const {bannerList} = this.props;
+    console.log('再看',bannerList)
     return (
-      <View>
+      <View style={{height:200}}>
         <Swiper 
+          key={bannerList.length}
           dot={<View style={styles.dot}/>}  
           activeDot={<View style={styles.activeDot}/>}  
           paginationStyle={styles.paginationStyle}  
-          height={160}
-          loop={false}>
+          height={200}
+          autoplay={true}
+          autoplayTimeout={3}
+          loop={true}>
 
           {
-              arr.map((item,index)=>{
-                  return(       
-                          <Image
-                              key={index} 
-                              source={{uri:item.picUrl}} 
-                              style={{
-                                  width:Dimensions.get('window').width-30,
-                                  height:95, 
-                                  borderRadius:20,
-                                  marginTop:10, 
-                                  resizeMode:Image.resizeMode.contain
-                          }}/>                                
+            bannerList && Array.isArray(bannerList) && bannerList.length>0 ? bannerList.map((item,index)=>{
+                  return(    
+                        <View key={index} style={styles.slide}>                   
+                      
+                        <ImageBackground
+                                key={index} 
+                                source={{uri:item.bannerUrl}} 
+                                style={{
+                                    width:Dimensions.get('window').width,
+                                    height:200,
+                                    flex:1, 
+                                    justifyContent:'flex-end'
+                            }}> 
+                            <Text style={{marginBottom:20, width: Dimensions.get('window').width,color:Color.HSWhiteColor, textAlign:'center'}}>{item.title}</Text>
+                            </ImageBackground> 
+                          </View>                                 
                   );
-              })
+              }) : ''
           }
           
         </Swiper>  
@@ -59,6 +67,11 @@ const styles = StyleSheet.create({
       marginRight: 7  
   },  
   paginationStyle: {  
-      
+    bottom:50,
+  },
+  slide:{
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent'
   }
 })

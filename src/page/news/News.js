@@ -4,6 +4,9 @@ import {Color} from 'LocalReference'
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view'
 import ContentList from './ContentList'
 const DeviceWidth = Dimensions.get('window').width;
+import Swiper from 'react-native-swiper';
+import {fetch_news_banner} from '../../action/index';
+import {connect} from 'react-redux';
 
 
 class NewsNavLeft extends Component{
@@ -29,7 +32,7 @@ class NewsNavCenter extends Component{
 }
 
 
-export default class News extends Component {
+class News extends Component {
   static navigationOptions = {
     headerTitle: <NewsNavCenter/>,
     headerLeft: <NewsNavLeft />,
@@ -37,6 +40,11 @@ export default class News extends Component {
       backgroundColor: Color.HSWhiteColor,
       borderBottomColor: Color.HSTransparent,
     }
+ }
+
+ componentDidMount(){
+   const {fetch_news_banner} = this.props;
+   fetch_news_banner();
  }
 
  _renderTabBar(){
@@ -60,6 +68,8 @@ export default class News extends Component {
  }
 
   render() {
+    const {bannerList, fetch_news_banner} = this.props;
+    console.log('查看banner',bannerList);
     return (
       <View style={styles.container}>
         <StatusBar
@@ -67,7 +77,7 @@ export default class News extends Component {
             barStyle="default"
         />
         <ScrollableTabView renderTabBar={() => this._renderTabBar()} scrollWithoutAnimation={true}>
-            <ContentList tabLabel="有料" />
+            <ContentList tabLabel="有料" bannerList={bannerList}/>
             <ContentList tabLabel="上海"/>
             <ContentList tabLabel="娱乐"/>
             <ContentList tabLabel="汽车"/>
@@ -86,4 +96,18 @@ const styles = StyleSheet.create({
     flex:1
   },
 })
+
+const mapStateToProps = (state) => ({
+  bannerList: state.newsReducer.bannerList,
+})
+
+const mapDispatchToProps = (dispatch) =>({
+  fetch_news_banner: ()=>{
+    dispatch(fetch_news_banner())
+  },
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(News);
+
+
 

@@ -8,6 +8,10 @@ const API = {
         signUp: "http://cmsapi.wifi8.com/uSystem/v2/sign/list",
         pollen: "http://cmsapi.wifi8.com/uSystem/v1/getPeanutWelfares",
     },
+    //资讯：
+    news:{
+        banner:"http://cmsapi.wifi8.com/v1/banner/list",
+    }
     
 }
 
