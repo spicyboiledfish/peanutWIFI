@@ -137,11 +137,15 @@ const Tab = createBottomTabNavigator(
 * export和export default导致引用时加不加{}的问题
 * ![首页加入fetch请求](./exhibition/sign.gif)
 
-## 6.6 添加了资讯页面的header头
+## 6.6 添加新组件scrollable-tab-view
 * 在网络测速中增加仪表盘组件
 * 对资讯页面的头部用headerLeft和headerTitle分别引入组件完成改造
 * 解决了网络测速的仪表盘组件显示不完全的bug
-* 完善了资讯Tab的头部navbar及scrollable-tab-view的组件使用
+* 完善了资讯Tab的头部navbar及scrollable-tab-view的组件使用 
+
+## 6.8 在资讯页面添加banner轮播图
+* 接入news页面的banner接口
+* ![资讯加入banner](./exhibition/banner.gif)
 
 
 
