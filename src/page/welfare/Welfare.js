@@ -56,9 +56,6 @@ class Welfare extends Component {
     let userTotal = data && data.userTotal;
     let signList = (data && data.signList) || [];
 
-    console.log('莉莉',pollen);
-
-    console.log('嘻嘻',data,title,signList);
     let networkArry = [
         {
           uri:'connect_netSpeed',
@@ -132,8 +129,6 @@ class Welfare extends Component {
               <View style={{flexDirection:'row', marginTop:15}}>
               {
                 signList.map((item,index)=>{
-                    console.log('嘿嘿',item.signDay);
-                    console.log('查看',index);
                       return(
                           <View style={styles.daySign} key={index}>
                               <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item.signDay}天</Text>

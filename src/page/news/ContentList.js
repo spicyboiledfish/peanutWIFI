@@ -24,8 +24,7 @@ export default class ContentList extends Component {
           {
             bannerList && Array.isArray(bannerList) && bannerList.length>0 ? bannerList.map((item,index)=>{
                   return(    
-                        <View key={index} style={styles.slide}>                   
-                      
+                        <View key={index} style={styles.slide}>                                        
                         <ImageBackground
                                 key={index} 
                                 source={{uri:item.bannerUrl}} 
@@ -37,12 +36,11 @@ export default class ContentList extends Component {
                             }}> 
                             <Text style={{marginBottom:20, width: Dimensions.get('window').width,color:Color.HSWhiteColor, textAlign:'center'}}>{item.title}</Text>
                             </ImageBackground> 
-                          </View>                                 
+                          </View>                                
                   );
               }) : ''
-          }
-          
-        </Swiper> :null
+          }          
+        </Swiper> : null
       } 
       </View>
     )

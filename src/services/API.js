@@ -11,6 +11,7 @@ const API = {
     //资讯：
     news:{
         banner:"http://cmsapi.wifi8.com/v1/banner/list",
+        activity:'http://cmsapi.wifi8.com/v1/banner/list',
     }
     
 }

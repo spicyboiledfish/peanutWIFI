@@ -26,7 +26,6 @@ const add_action = ()=>({
 //         })
 //         .then((response) => response.json())
 //         .then((result) => {
-//                 // console.log('嘻嘻小睿',result);
 //                 dispatch({
 //                     type:welfare_type.signInfo,
 //                     signData:result
