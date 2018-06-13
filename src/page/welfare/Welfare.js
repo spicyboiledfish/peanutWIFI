@@ -58,17 +58,17 @@ class Welfare extends Component {
 
     let networkArry = [
         {
-          uri:'connect_netSpeed',
+          uri:'connect_netspeed',
           text:'网络测速',
           name:'Speed',
         },
         {
-          uri:'connect_netCheck',
+          uri:'connect_netcheck',
           text:'网络诊断',
           name:'TestNet',
         },
         {
-          uri:'connect_netDes',
+          uri:'connect_netdes',
           text:'网络流量',
           name:'Flow',
         }
@@ -132,7 +132,7 @@ class Welfare extends Component {
                       return(
                           <View style={styles.daySign} key={index}>
                               <Text style={{fontSize:10, color: Color.HSSix9Color, marginBottom:5}}>第{item.signDay}天</Text>
-                              <ImageBackground style={{width:36,height:39}} source={{uri:item.picUrl ? item.picUrl : ''}}> 
+                              <ImageBackground style={{width:36,height:39}} source={{uri:item.picUrl ? item.picUrl : 'current_go_sign'}}> 
                                 { item.signDay == userTotal ? <Image source={{uri:'sign_ad_suc'}} style={{width:36, height:39}}/> : null}
                                 { index == userTotal ? <TouchableOpacity activeOpacity={1}  onPress={()=>{this.goToSign()}}><Image source={{uri:'current_go_sign'}} style={{width:36, height:39}}/></TouchableOpacity> : null}
                               </ImageBackground>
