@@ -7,7 +7,6 @@ export default class ContentList extends Component {
   
   render() {
     const {bannerList} = this.props;
-    console.log('再看',bannerList)
     return (
       <View style={{height:200}}>
       { bannerList ? 
@@ -25,20 +24,23 @@ export default class ContentList extends Component {
             bannerList && Array.isArray(bannerList) && bannerList.length>0 ? bannerList.map((item,index)=>{
                   return(    
                         <View key={index} style={styles.slide}>                                        
-                        <ImageBackground
-                                key={index} 
-                                source={{uri:item.bannerUrl}} 
-                                style={{
-                                    width:Dimensions.get('window').width,
-                                    height:200,
-                                    flex:1, 
-                                    justifyContent:'flex-end'
-                            }}> 
-                            <Text style={{marginBottom:20, width: Dimensions.get('window').width,color:Color.HSWhiteColor, textAlign:'center'}}>{item.title}</Text>
-                            </ImageBackground> 
-                          </View>                                
+                          <ImageBackground
+                                  key={index} 
+                                  source={{uri:item.bannerUrl}} 
+                                  style={{
+                                      width:Dimensions.get('window').width,
+                                      height:200,
+                                      flex:1, 
+                                      justifyContent:'flex-end'
+                              }}> 
+                              <View>
+                                  <Text style={{marginBottom:20, width: Dimensions.get('window').width,color:Color.HSWhiteColor, textAlign:'center'}}>{item.title}</Text>
+                              </View>
+                             
+                          </ImageBackground>                          
+                        </View>                                
                   );
-              }) : ''
+              }) : <View></View>
           }          
         </Swiper> : null
       } 

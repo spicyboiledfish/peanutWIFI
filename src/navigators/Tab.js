@@ -75,6 +75,7 @@ const Tab = createBottomTabNavigator(
     },
     {
         tabBarPosition:'bottom',
+        backBehavior: 'none',    //按 back 键是否跳转到第一个Tab(首页)， none 为不跳转
         swipeEnabled:false,  
         lazy: true,
         tabBarOptions: {
